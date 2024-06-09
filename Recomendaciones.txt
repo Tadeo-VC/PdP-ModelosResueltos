@@ -1,0 +1,5 @@
+1- Cuando tengas un data, arma las funciones map de cada elemento y despues si no las usas las sacas (usar max, o min de acuerdo a la situacion para que no queden casos imposibles)
+2- Realizar testeos rapidos de las funciones 
+3- REVISAR NO REPETIR LOGICA Y REUTILIZAR LAS COSAS LO MAS POSIBLE
+4- cuando la funcion se ponga media compleja abtraer, quizas la puedas reautilizar
+5- LEE BIEN LA CONSIGNA SALAME
