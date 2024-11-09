@@ -1,0 +1,18 @@
+@startuml DiagramaDeClases
+
+class Nena {
+
+}
+
+class Emocion {
+
+}
+
+class Evento {
+
+}
+
+Nena -->"*" Emocion 
+Nena -->"*" Evento
+
+@enduml
