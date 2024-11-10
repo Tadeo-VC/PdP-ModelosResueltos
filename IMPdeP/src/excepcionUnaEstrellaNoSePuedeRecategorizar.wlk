@@ -1,0 +1,1 @@
+class ExcepcionUnaEstrellaNoSePuedeRecategorizar inherits Exception {}

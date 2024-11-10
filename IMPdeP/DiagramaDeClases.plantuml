@@ -1,0 +1,108 @@
+@startuml DiagramaDeClases
+
+abstract class Pelicula {
+    presupuesto
+    sueldoDelElenco
+    ganancias
+    recaudacion
+    recaudacionExtra
+    rodarPelicula
+    esEconomica
+}
+
+class PeliculaDeDrama{
+    presupuesto
+    sueldoDelElenco
+    ganancias
+    recaudacion
+    recaudacionExtra
+    rodarPelicula
+    esEconomica
+    recaudacionPorNombre
+}
+
+class PeliculaDeAccion{
+    presupuesto
+    sueldoDelElenco
+    ganancias
+    recaudacion
+    recaudacionExtra
+    rodarPelicula
+    esEconomica
+    recaudacionPorElenco
+}
+
+class PeliculaDeTerror{
+    presupuesto
+    sueldoDelElenco
+    ganancias
+    recaudacion
+    recaudacionExtra
+    rodarPelicula
+    esEconomica
+}
+
+class PeliculaDeComedia{
+    presupuesto
+    sueldoDelElenco
+    ganancias
+    recaudacion
+    recaudacionExtra
+    rodarPelicula
+    esEconomica
+}
+
+class Actor {
+    sueldo 
+    peliculasEnLasQueActuo
+    nivelDeFamaMayorA(unaCantidad)
+    recategorizarse
+    experiencia
+    actuar
+}
+
+interface experiencia {
+    cuantoCobra(unActor)
+    subirDeCategoria(unActor)
+}
+
+object amateur {
+    cuantoCobra(unActor)
+    subirDeCategoria(unActor)
+}
+
+object establecido {
+    cuantoCobra(unActor)
+    subirDeCategoria(unActor)
+}
+
+object estrella {
+    cuantoCobra(unActor)
+    subirDeCategoria(unActor)
+}
+
+object IMPdeP {
+    actorMejorPago
+    peliculasEconomicas
+    nombresDeLasPeliculasEconomicas
+    gananciaDeLasPeliculasEconomicas
+    recategorizarActores
+}
+
+Pelicula -r->"*" Actor 
+PeliculaDeDrama -u-|> Pelicula
+PeliculaDeAccion -u-|> Pelicula
+PeliculaDeTerror -u-|> Pelicula
+PeliculaDeComedia -u-|> Pelicula
+
+Actor -r-> experiencia
+amateur .d.|> experiencia
+establecido .d.|> experiencia
+estrella .d.|> experiencia
+
+experiencia ..> Actor
+
+IMPdeP -->"*" Actor
+IMPdeP -->"*" Pelicula 
+
+@enduml 
