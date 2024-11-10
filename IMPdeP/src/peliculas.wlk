@@ -21,9 +21,7 @@ class Pelicula
 
 class PeliculaDeDrama inherits Pelicula
 {
-    override method recaudacionExtra() = self.recaudacionPorNombre()
-
-    method recaudacionPorNombre() = nombre.size() * 100000
+    override method recaudacionExtra() = nombre.size() * 100000
 }
 
 class PeliculaDeAccion inherits Pelicula
@@ -32,9 +30,7 @@ class PeliculaDeAccion inherits Pelicula
     
     override method presupuesto() = super() + 1000 * vidriosRotos
 
-    override method recaudacionExtra() = self.recaudacionPorElenco()
-
-    method recaudacionPorElenco() = elenco.size() * 50000
+    override method recaudacionExtra() = elenco.size() * 50000
 }
 
 class PeliculaDeTerror inherits Pelicula

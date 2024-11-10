@@ -1,8 +1,8 @@
 
 object IMPdeP 
 {
-    const peliculas = []
-    const actores = []
+    const peliculas = #{}
+    const actores = #{}
 
     method actorMejorPago() = actores.max({unActor => unActor.sueldo()}) 
 

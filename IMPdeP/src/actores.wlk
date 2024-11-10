@@ -3,15 +3,12 @@ import src.excepcionUnaEstrellaNoSePuedeRecategorizar.ExcepcionUnaEstrellaNoSePu
 class Actor 
 {
     var experiencia
-    const nivelDeFama
     var peliculasEnLasQueActuo
     var ahorros
 
     method sueldo() = experiencia.cuantoCobra(self)
 
     method peliculasEnLasQueActuo() = peliculasEnLasQueActuo
-
-    method nivelDeFamaMayorA(unaCantidad) = nivelDeFama > unaCantidad
 
     method recategorizarse() = experiencia.subirDeCategoria()
 
@@ -41,7 +38,7 @@ object establecido
 {
     method cuantoCobra(unActor) {
 
-        if(unActor.nivelDeFamaMayorA(14)) {
+        if(unActor.nivelDeFamaMayorA(unActor,14)) {
             
             return 5000 * unActor
         } else {
@@ -52,10 +49,14 @@ object establecido
 
     method subirDeCategoria(unActor) {
 
-        if(unActor.nivelDeFamaMayorA(10)) {
+        if(unActor.nivelDeFamaMayorA(unActor,10)) {
             unActor.experiencia(estrella) 
         }
     }
+
+    method nivelDeFama(unActor) = unActor.peliculasEnLasQueActuo() / 2
+
+    method nivelDeFamaMayorA(unActor,unaCantidad) = self.nivelDeFama(unActor) > unaCantidad
 }
 object estrella 
 {

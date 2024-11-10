@@ -1,64 +1,72 @@
 @startuml DiagramaDeClases
 
 abstract class Pelicula {
-    presupuesto
-    sueldoDelElenco
-    ganancias
-    recaudacion
-    recaudacionExtra
-    rodarPelicula
-    esEconomica
+    nombre
+    elenco
+    --
+    presupuesto()
+    sueldoDelElenco()
+    ganancias()
+    recaudacion()
+    recaudacionExtra()
+    rodarPelicula()
+    esEconomica()
 }
 
-class PeliculaDeDrama{
-    presupuesto
-    sueldoDelElenco
-    ganancias
-    recaudacion
-    recaudacionExtra
-    rodarPelicula
-    esEconomica
-    recaudacionPorNombre
+class PeliculaDeDrama extends Pelicula{
+    presupuesto()
+    sueldoDelElenco()
+    ganancias()
+    recaudacion()
+    recaudacionExtra()
+    rodarPelicula()
+    esEconomica()
 }
 
-class PeliculaDeAccion{
-    presupuesto
-    sueldoDelElenco
-    ganancias
-    recaudacion
-    recaudacionExtra
-    rodarPelicula
-    esEconomica
-    recaudacionPorElenco
+class PeliculaDeAccion extends Pelicula{
+    vidriosRotos
+    --
+    presupuesto()
+    sueldoDelElenco()
+    ganancias()
+    recaudacion()
+    recaudacionExtra()
+    rodarPelicula()
+    esEconomica()
 }
 
-class PeliculaDeTerror{
-    presupuesto
-    sueldoDelElenco
-    ganancias
-    recaudacion
-    recaudacionExtra
-    rodarPelicula
-    esEconomica
+class PeliculaDeTerror extends Pelicula{
+    cuchos
+    --
+    presupuesto()
+    sueldoDelElenco()
+    ganancias()
+    recaudacion()
+    recaudacionExtra()
+    rodarPelicula()
+    esEconomica()
 }
 
-class PeliculaDeComedia{
-    presupuesto
-    sueldoDelElenco
-    ganancias
-    recaudacion
-    recaudacionExtra
-    rodarPelicula
-    esEconomica
+class PeliculaDeComedia extends Pelicula{
+    presupuesto()
+    sueldoDelElenco()
+    ganancias()
+    recaudacion()
+    recaudacionExtra()
+    rodarPelicula()
+    esEconomica()
 }
 
 class Actor {
-    sueldo 
-    peliculasEnLasQueActuo
-    nivelDeFamaMayorA(unaCantidad)
-    recategorizarse
     experiencia
-    actuar
+    peliculasEnLasQueActuo
+    ahorros
+    --
+    sueldo ()
+    peliculasEnLasQueActuo()
+    recategorizarse()
+    experiencia()
+    actuar()
 }
 
 interface experiencia {
@@ -74,6 +82,8 @@ object amateur {
 object establecido {
     cuantoCobra(unActor)
     subirDeCategoria(unActor)
+    nivelDeFama(unActor)
+    nivelDeFamaMayorA(unActor,unaCantidad)
 }
 
 object estrella {
@@ -82,18 +92,17 @@ object estrella {
 }
 
 object IMPdeP {
-    actorMejorPago
-    peliculasEconomicas
-    nombresDeLasPeliculasEconomicas
-    gananciaDeLasPeliculasEconomicas
-    recategorizarActores
+    peliculas 
+    actores
+    --
+    actorMejorPago()
+    peliculasEconomicas()
+    nombresDeLasPeliculasEconomicas()
+    gananciaDeLasPeliculasEconomicas()
+    recategorizarActores()
 }
 
 Pelicula -r->"*" Actor 
-PeliculaDeDrama -u-|> Pelicula
-PeliculaDeAccion -u-|> Pelicula
-PeliculaDeTerror -u-|> Pelicula
-PeliculaDeComedia -u-|> Pelicula
 
 Actor -r-> experiencia
 amateur .d.|> experiencia
