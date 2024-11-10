@@ -1,3 +1,4 @@
 https://pdep-lunes.github.io/bitacora/2024/objetos/clase-22/
 https://www.wollok.org/documentation/language/
 https://wollok-docs.netlify.app/
+https://github.com/PGabarini/Repositorio-de-ParadigmasDeProg/tree/main/practicaWollok/parcialMomento
