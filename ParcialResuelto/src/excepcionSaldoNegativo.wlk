@@ -1,0 +1,1 @@
+class ExcepcionSaldoNegativo inherits Exception {}

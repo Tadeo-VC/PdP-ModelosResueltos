@@ -1,0 +1,34 @@
+import src.asistentes.Asistente
+import src.entrada.Entrada
+import src.tiposDeAbonos.fan 
+import src.tiposDeAbonos.Vip
+import src.bandas.BandaDeTrap
+import src.productora.productora
+
+describe "Test sobre un asistente fan, con saldo positivo" {
+    
+    const unAsistente = new Asistente(tipoDeAbono = fan, dineroDisponible = 5)
+    const facilB = new BandaDeTrap(nombre = "Facil B", tienenHielo = true)
+    test "El asistente compra una entrada, queda con saldo -995 y una entrada en el historial " {
+        unAsistente.comprarEntrada(facilB, 11/11/2024)
+        assert.equals(-995, unAsistente.saldo())
+        assert.equals(1, unAsistente.cantidadDeEntradasVendidas())
+    }
+}
+
+describe "Test sobre un asistente vip con 50 porciento de descuento, con saldo positivo" {
+    
+    const vip = new Vip (porcentajeDeDescuento = 0.5)
+    const unAsistente = new Asistente(tipoDeAbono = vip, dineroDisponible = 5)
+    const facilB = new BandaDeTrap(nombre = "Facil B", tienenHielo = true)
+    test "El asistente compra una entrada, queda con saldo -995 y una entrada en el historial " {
+        unAsistente.comprarEntrada(facilB, 11/11/2024)
+        assert.equals(-495, unAsistente.saldo())
+        assert.equals(1, unAsistente.cantidadDeEntradasVendidas())
+    }
+
+    test "recibe la bonificacion de la productora" {
+        productora.bonificarAsistentesVIP()
+        assert.equals(0.51, vip.porcentaje())
+    }
+}

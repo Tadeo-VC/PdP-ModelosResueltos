@@ -1,0 +1,106 @@
+@startuml DiagramaDeClases
+
+class Entrada {
+    banda
+    fechaQueToca
+    --
+    precio()
+    esDelAnioAnterior()
+    nombreDeLaBanda()
+}
+
+class Asistente {
+    tipoDeAbono
+    historialDeEntradas = []
+    dineroDisponible
+    --
+    comprarEntrada(unaBanda,unaFecha)
+    entradasDelAñoAnterior()
+    deQueBandasTieneEntrada()
+    cambiarAbono()
+    recaudacion()
+    cantidadDeEntradasVendidas()
+}
+
+interface tipoDeAbono {
+    descuentoOtorgado(unaEntrada)
+}
+
+object fan {
+    descuentoOtorgado(unaEntrada)
+}
+
+class Vip {
+    porcentajeDeDescuento
+    --
+    descuentoOtorgado(unaEntrada)
+    bonificar()
+}
+
+abstract class Banda {
+    nombre
+    canonoBase = 1000000
+    --
+    presupuesto()
+    gastoExtra()
+    popularidad()
+    canon()
+    nombre()
+}
+
+class BandaDeRock extends Banda {
+    nombre
+    canonBase = 1000000
+    cantidadDeSolosDeGuitarra
+    --
+    presupuesto()
+    popularidad()
+    gastoExtra()    
+}
+
+class BandaDeTrap extends Banda {    
+    nombre
+    canonBase = 1000000
+    tienenHielo
+    --
+    presupuesto()
+    popularidad()
+    gastoExtra()
+}
+
+class BandaIndie extends Banda {
+    nombre
+    canonBase = 1000000
+    cantidadDeInstrumentos
+    --
+    presupuesto()
+    popularidad()
+    gastoExtra()    
+}
+
+object productora {
+    bandas 
+    asistentes
+    impuestoDeLasEntradas 
+    --
+    gananciaTotal()
+    recaudacionDeLosAsistentes()
+    presupuestoDeLasBandas()
+    cantidadDeEntradasVendidas()
+    bandaMasPopular()
+    bonificarAsistentesVip()
+    impuestoDeLasEntradas()
+    impuestoDeLasEntradas(unValor)
+}
+
+productora -->"*" Asistente
+productora -->"*" Banda
+
+Asistente -->"*" Entrada 
+Asistente -l-> tipoDeAbono
+Asistente ..> Banda
+
+fan .u.|> tipoDeAbono
+Vip .u.|> tipoDeAbono
+
+@enduml
